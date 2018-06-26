@@ -6,6 +6,8 @@ using UIKit;
 using MediaSelection.Service;
 using ObjCRuntime;
 using Xamarin.Forms;
+using MediaSelection.Enums;
+using System;
 
 namespace MediaSelection.iOS
 {
@@ -31,10 +33,13 @@ namespace MediaSelection.iOS
             LoadApplication(new App(new iOSInitializer()));
 
 
-            MessagingCenter.Subscribe<string>(this, "w", (arg) =>
-            {
-                disableAllOrientation = true;
-            });
+            //Listing to call, should loack portrait ot not.
+            MessagingCenter.Subscribe<string>("key", "mode", (arg) =>
+             {
+                 disableAllOrientation = arg == AppOrientation.Portrait.ToString();
+             });
+
+
             return base.FinishedLaunching(app, options);
         }
         public override UIInterfaceOrientationMask GetSupportedInterfaceOrientations(UIApplication application, [Transient] UIWindow forWindow)

@@ -12,7 +12,13 @@ namespace MediaSelection.Views
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            MessagingCenter.Send<string>("w", AppOrientation.Landscape.ToString());
+        }
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            //We are unlocking an orientation for other pages.
+            MessagingCenter.Send<string>(AppOrientation.Landscape.ToString(), "mode");
         }
     }
 }

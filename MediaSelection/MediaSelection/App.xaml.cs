@@ -24,7 +24,7 @@ namespace MediaSelection
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/WelcomPage");
+            await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using MediaSelection.Enums;
 
 namespace MediaSelection.ViewModels
 {
@@ -33,7 +34,13 @@ namespace MediaSelection.ViewModels
         async Task ExecuteSelectMedia()
         {
             var stream = await picturePicker.GetImageStreamAsync();
-            SelectedImage = ImageSource.FromStream(() => stream);
+            SelectedImage = ImageSource.FromStream(() => stream); //I'm just reading Image, We might have video as well, need to check.
+
+            //These commented lines applied portrait lock on the NextPage, Here on WelcomePage.
+
+            //MessagingCenter.Send<string>(AppOrientation.Portrait.ToString(), "mode");
+            //await NavigationService.NavigateAsync("WelcomePage");
+
         }
     }
 }
