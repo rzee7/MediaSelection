@@ -1,8 +1,9 @@
 ﻿using Foundation;
+using MediaSelection.iOS.Service;
 using Prism;
 using Prism.Ioc;
 using UIKit;
-
+using MediaSelection.Service;
 
 namespace MediaSelection.iOS
 {
@@ -32,7 +33,7 @@ namespace MediaSelection.iOS
     {
         public void RegisterTypes(IContainerRegistry container)
         {
-
+            container.Register<IPicturePicker, PicturePickerImplementation>();
         }
     }
 }
