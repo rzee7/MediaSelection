@@ -6,8 +6,38 @@
     xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
     prism:ViewModelLocator.AutowireViewModel="True">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding Orientation}" />
-        </StackLayout>
+        <RelativeLayout>
+            <Image
+                x:Name="imageCircleBack"
+                HeightRequest="70"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Property=Width,
+                                                                  Factor=.5,
+                                                                  Constant=-35}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  Factor=0,
+                                                                  Property=Y,
+                                                                  Constant=70}"
+                Source="icon"
+                WidthRequest="70" />
+            <Button
+                BackgroundColor="Red"
+                BorderRadius="30"
+                HeightRequest="40"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+                                                                  ElementName=imageCircleBack,
+                                                                  Property=X,
+                                                                  Factor=1,
+                                                                  Constant=60}"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                                                                  ElementName=imageCircleBack,
+                                                                  Factor=1,
+                                                                  Property=Y,
+                                                                  Constant=40}"
+                Text="55"
+                TextColor="White"
+                WidthRequest="40" />
+
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>

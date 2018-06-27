@@ -24,7 +24,11 @@ namespace MediaSelection
         {
             InitializeComponent();
 
+            //Image and Video Page
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            
+            //Badge View Page
+            //await NavigationService.NavigateAsync("NavigationPage/WelcomePage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
